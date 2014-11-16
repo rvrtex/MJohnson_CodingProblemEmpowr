@@ -1,0 +1,6 @@
+c:\users\matthew\documents\visual studio 2013\Projects\MJohnson_CodingProblemEmpowr\bin\Debug\MJohnson_CodingProblemEmpowr.exe.config
+c:\users\matthew\documents\visual studio 2013\Projects\MJohnson_CodingProblemEmpowr\bin\Debug\MJohnson_CodingProblemEmpowr.exe
+c:\users\matthew\documents\visual studio 2013\Projects\MJohnson_CodingProblemEmpowr\bin\Debug\MJohnson_CodingProblemEmpowr.pdb
+c:\users\matthew\documents\visual studio 2013\Projects\MJohnson_CodingProblemEmpowr\obj\Debug\MJohnson_CodingProblemEmpowr.exe
+c:\users\matthew\documents\visual studio 2013\Projects\MJohnson_CodingProblemEmpowr\obj\Debug\MJohnson_CodingProblemEmpowr.pdb
+C:\Users\Matthew\documents\visual studio 2013\Projects\MJohnson_CodingProblemEmpowr\obj\Debug\MJohnson_CodingProblemEmpowr.csprojResolveAssemblyReference.cache
