@@ -26,17 +26,23 @@ namespace MJohnson_CodingProblemEmpowr
                 for (int j = 0; j < Width; j++)
                 {
                     CheckAddWord(WordsFound, puzzle[i, j].ToString());
+
                     GoingRight = GoingDown = GoingDownRight = GoingDownLeft = puzzle[i, j].ToString();
                     TrackingRightComplete = TrackingDownComplete = TrackingDownRightComplete = TrackingDownLeftComplete = false;
+
                     TrackingRight = j + 1;
                     TrackingDown = i + 1;
                     TrackingLeft = j - 1;
                     while (!TrackingDownComplete || !TrackingDownRightComplete || !TrackingRightComplete || !TrackingDownLeftComplete)
                     {
                         HorizontalWords(puzzle, WordsFound, Width, ref GoingRight, TrackingRight, ref TrackingRightComplete, i);
+
                         VerticalWords(puzzle, WordsFound, Height, ref GoingDown, TrackingDown, ref TrackingDownComplete, j);
+
                         DiagonalTopLeftToBottomRight(puzzle, WordsFound, Height, Width, ref GoingDownRight, TrackingRight, TrackingDown, ref TrackingDownRightComplete);
+
                         DiagonalTopRightToBottomLeft(puzzle, WordsFound, Height, ref GoingDownLeft, TrackingDown, TrackingLeft, ref TrackingDownLeftComplete);
+
                         TrackingDown++;
                         TrackingRight++;
                         TrackingLeft--;
@@ -52,8 +58,10 @@ namespace MJohnson_CodingProblemEmpowr
             {
                 char[] tempCharArray;
                 string WordReversed;
+
                 GoingDownLeft = GoingDownLeft + puzzle[TrackingDown, TrackingLeft];
                 CheckAddWord(PossibleCombination, GoingDownLeft);
+
                 tempCharArray = GoingDownLeft.ToCharArray();
                 Array.Reverse(tempCharArray);
                 WordReversed = new string(tempCharArray);
@@ -73,8 +81,10 @@ namespace MJohnson_CodingProblemEmpowr
             {
                 char[] tempCharArray;
                 string WordReversed;
+
                 GoingDownRight = GoingDownRight + puzzle[TrackingDown, TrackingRight];
                 CheckAddWord(PossibleCombination, GoingDownRight);
+
                 tempCharArray = GoingDownRight.ToCharArray();
                 Array.Reverse(tempCharArray);
                 WordReversed = new string(tempCharArray);
@@ -93,8 +103,10 @@ namespace MJohnson_CodingProblemEmpowr
             {
                 char[] tempCharArray;
                 string WordReversed;
+
                 GoingDown = GoingDown + puzzle[TrackingDown, j];
                 CheckAddWord(PossibleCombination, GoingDown);
+
                 tempCharArray = GoingDown.ToCharArray();
                 Array.Reverse(tempCharArray);
                 WordReversed = new string(tempCharArray);
@@ -109,12 +121,15 @@ namespace MJohnson_CodingProblemEmpowr
 
         private static void HorizontalWords(char[,] puzzle, List<string> PossibleCombination, int Width, ref string GoingRight, int TrackingRight, ref bool TrackingRightComplete, int i)
         {
-            char[] tempCharArray;
-            string WordReversed;
+           
             if (TrackingRight < Width && !TrackingRightComplete)
             {
+                char[] tempCharArray;
+                string WordReversed;
+
                 GoingRight = GoingRight + puzzle[i, TrackingRight];
                 CheckAddWord(PossibleCombination, GoingRight);
+
                 tempCharArray = GoingRight.ToCharArray();
                 Array.Reverse(tempCharArray);
                 WordReversed = new string(tempCharArray);
@@ -126,11 +141,11 @@ namespace MJohnson_CodingProblemEmpowr
             }
 
         }
-        private static void CheckAddWord(List<string> PossibleCombination, string GoingDownLeft)
+        private static void CheckAddWord(List<string> PossibleCombination, string word)
         {
-            if (IsWord(GoingDownLeft))
+            if (IsWord(word))
             {
-                PossibleCombination.Add(GoingDownLeft);
+                PossibleCombination.Add(word);
             }
         }
 
@@ -149,15 +164,15 @@ namespace MJohnson_CodingProblemEmpowr
         static void Main(string[] args)
         {
             char[,] puzzle = new char[,] { 
-                {'C','A','T','A','P','U','L','T'},
-                {'X','Z','T','T','O','Y','O','O'},
-                {'Y','O','T','O','X','T','X','X'}
+                {'C','A','T'},
+                {'X','Z','T'},
+                {'Y','O','T'}
             };
             System.Console.WriteLine("Output: " + FindWords(puzzle));
             Console.Read();
         }
     }
 }
-//{'C','A','T','A','P','U','L','T'},
+//            {'C','A','T','A','P','U','L','T'},
 //            {'X','Z','T','T','O','Y','O','O'},
 //            {'Y','O','T','O','X','T','X','X'}
